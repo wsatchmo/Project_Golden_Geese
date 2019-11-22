@@ -69,7 +69,6 @@
   /* Login form */
   .form-group {
     float: right;
-    font-size: 10px;
     color: #ffffff;
     text-align: center;
     padding: 5px 5px;
@@ -88,4 +87,53 @@
     font-family: inherit;
     margin: 0;
   }
-  /**/
+  
+  .btn:hover {
+      background-color: #525050;
+  }
+
+  .login {
+    position: relative;
+    top: 5px;
+    right: 5px;
+    font-size: 25%;
+    display: inline-block;
+}
+  
+/* body column css*/
+.col-xs-6,
+.col-md-4 {
+    margin: 0;
+    vertical-align: baseline;
+    font-size: 100%;
+    font: inherit;
+    border: 0;
+    padding: 5px;
+}
+
+h3 {
+    text-align: center;
+    padding-top: 2%;
+    font-family: Georgia, Times, 'Times New Roman', serif;
+}
+
+/* chapter outline css*/
+.chapter-outline {
+    background: url("../images/notepad-image.jpg");
+    background-size: cover;
+    min-height: 300px;
+}
+
+/* main writing css*/
+.main-writing {
+    background: url("../images/lined-paper.jpg");
+    background-size: cover;
+    min-height: 500px;
+}
+
+/* image dropping css*/
+.image-dropping {
+    padding: 5px;
+    background-color: #030303;
+    min-height: 300px;
+}
