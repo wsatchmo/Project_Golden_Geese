@@ -53,6 +53,7 @@
     float: left;
     color: #ffffff;
     text-decoration: none;
+    text-align: center;
   }
   
   /* Add a grey background color on hover */
@@ -73,19 +74,18 @@
     text-align: center;
     padding: 5px 5px;
     text-decoration: none;
+    margin-bottom: 0px;
+    margin-top: 5px;
   }
 
   /* Login button*/
   .btn {
-    float: inline-end;
     font-size: 10px;
     border: none;
     outline: #a7a5a5;
     color: #ffffff;
-    padding: 10px 5px;
     background-color: #a7a5a5;
     font-family: inherit;
-    margin: 0;
   }
   
   .btn:hover {
@@ -95,7 +95,7 @@
   .login {
     position: relative;
     top: 5px;
-    right: 5px;
+    right: -75px;
     font-size: 25%;
     display: inline-block;
 }
@@ -122,25 +122,25 @@ header {
 }
 
 .chapter-outline {
-  grid-area: "nav";
+  grid-area: nav;
   margin-left: 0.5rem;
 }
 
 .main-writing {
-  grid-area: "content";
+  grid-area: content;
 }
 
 .image-dropping {
-  grid-area: "side";
-  margin-right: 0.5rem;
+  grid-area: side;
+  
 }
 
 .key-point {
-  grid-area: "content1"; 
+  grid-area: content1; 
 }
 
 .wikipedia {
-  grid-area: "content2";
+  grid-area: content2;
   float: right;
 }
 
@@ -174,14 +174,34 @@ h3 {
 
 /* main writing css*/
 .main-writing {
-    background: url("../images/lined-paper.jpg");
+    background: url("../images/white-lined-paper.jpg");
     background-size: cover;
     min-height: 500px;
 }
 
 /* image dropping css*/
 .image-dropping {
-    padding: 5px;
+
     background-color: #030303;
     min-height: 300px;
+}
+
+/* key-point css*/
+.key-point {
+  background-color: #777474;
+  min-height: 300px;
+}
+
+/* wikipedia css*/
+.wikipedia {
+  background-color: #777474;
+  min-height: 300px;
+}
+
+/* footer container css*/
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #4e4e4e;
+  min-height: 100px;
 }
