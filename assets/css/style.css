@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .page-box{
     height: 500px;
     width: 50%;
@@ -10,3 +11,144 @@
     height: 500px;
     padding: 10px;
     border: 3px solid #aaaaaa;
+=======
+/* The navigation menu */
+.navbar {
+    overflow: hidden;
+    background-color: #333333;
+  }
+  
+  /* Navigation links */
+  .navbar a {
+    float: left;
+    font-size: 16px;
+    color: #ffffff;
+    text-align: center;
+    padding: 10px 5px;
+    text-decoration: none;
+  }
+  
+  /* The subnavigation menu */
+  .subnav {
+    float: left;
+    overflow: hidden;
+  }
+  
+  /* Subnav button */
+  .subnav,
+  .subnavbtn {
+    font-size: 16px;
+    border: none;
+    outline: none;
+    color: #ffffff;
+    padding: 10px 5px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+  }
+  
+  /* Add a red background color to navigation links on hover */
+  .navbar a:hover, .subnav:hover .subnavbtn {
+    background-color: #8b8888;
+  }
+  
+  /* Style the subnav content - positioned absolute */
+  .subnav-content {
+    display: none;
+    position: absolute;
+    left: 0;
+    background-color: #8b8888;
+    width: 100%;
+    z-index: 1;
+  }
+  
+  /* Style the subnav links */
+  .subnav-content a {
+    float: left;
+    color: #ffffff;
+    text-decoration: none;
+  }
+  
+  /* Add a grey background color on hover */
+  .subnav-content a:hover {
+    background-color: #eeeeee;
+    color: #000000;
+  }
+  
+  /* When you move the mouse over the subnav container, open the subnav content */
+  .subnav:hover .subnav-content {
+    display: block;
+  }
+
+  /* Login form */
+  .form-group {
+    float: right;
+    color: #ffffff;
+    text-align: center;
+    padding: 5px 5px;
+    text-decoration: none;
+  }
+
+  /* Login button*/
+  .btn {
+    float: inline-end;
+    font-size: 10px;
+    border: none;
+    outline: #a7a5a5;
+    color: #ffffff;
+    padding: 10px 5px;
+    background-color: #a7a5a5;
+    font-family: inherit;
+    margin: 0;
+  }
+  
+  .btn:hover {
+      background-color: #525050;
+  }
+
+  .login {
+    position: relative;
+    top: 5px;
+    right: 5px;
+    font-size: 25%;
+    display: inline-block;
+}
+  
+/* body column css*/
+.col-xs-6,
+.col-md-4 {
+    margin: 0;
+    vertical-align: baseline;
+    font-size: 100%;
+    font: inherit;
+    border: 0;
+    padding: 5px;
+}
+
+h3 {
+    text-align: center;
+    padding-top: 2%;
+    font-family: Georgia, Times, 'Times New Roman', serif;
+}
+
+/* chapter outline css*/
+.chapter-outline {
+    background: url("../images/notepad-image.jpg");
+    background-size: cover;
+    min-height: 300px;
+}
+
+/* main writing css*/
+.main-writing {
+    background: url("../images/lined-paper.jpg");
+    background-size: cover;
+    min-height: 500px;
+}
+
+/* image dropping css*/
+.image-dropping {
+    padding: 5px;
+    background-color: #030303;
+    min-height: 300px;
+}
+>>>>>>> 455ed402ac2500a166fbacc880305060df79fb33

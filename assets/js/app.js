@@ -1,3 +1,4 @@
+
 //Display text on the main page as it is typed
     //Save it automatically if possible
 
