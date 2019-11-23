@@ -3,94 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <title>Project</title>
+      <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
-    <!-- Bootstrap -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+  <!-- Firebase References -->
+  <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
 
-<!-- Firebase References -->
-<script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
-
-<!-- Moment.js Reference -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
-<!-- jQuery Reference -->   
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-
+  <!-- Moment.js Reference -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
 </head>
 <body>
-    <!-- The navigation menu -->
-<header>
+<div class="container">
+<!-- top tab bar for nav and login form-->
+  <header>
     <div class="navbar">
         <a href="#home">Home</a>
         <div class="subnav">
-          <button class="subnavbtn">File <i class="fa fa-caret-down"></i></button>
-          <div class="subnav-content">
+            <button class="subnavbtn">File <i class="fa fa-caret-down"></i></button>
+            <div class="subnav-content">
             <a href="#open">Open</a>
             <a href="#save">Save</a>
             <a href="#exit">Exit</a>
-          </div>
+            </div>
         </div>
         <div class="subnav">
-          <button class="subnavbtn">Edit <i class="fa fa-caret-down"></i></button>
-          <div class="subnav-content">
+            <button class="subnavbtn">Edit <i class="fa fa-caret-down"></i></button>
+            <div class="subnav-content">
             <a href="#undi">Undo</a>
             <a href="#redo">Redo</a>
-          </div>
+            </div>
         </div>
         <div class="subnav">
-          <button class="subnavbtn">Help <i class="fa fa-caret-down"></i></button>
-          <div class="subnav-content">
+            <button class="subnavbtn">Help <i class="fa fa-caret-down"></i></button>
+            <div class="subnav-content">
             <a href="#faq">FAQ</a>
             <a href="#contact">Contact</a>
-          </div>
-    </div>
+            </div>
+        </div>
         <div>
             <form>
                 <span class="login">
-                <div class="form-group">
-                    <label for="username-input">Username</label>
+                    <div class="form-group">
                     <input class="form-control" id="username-input" placeholder="" type="text">
+                    <label for="username-input">Username</label>
                     </div>
                     <div class="form-group">
-                    <label for="password-input">Password</label>
                     <input class="form-control" id="password-input" placeholder="" type="text">
+                    <label for="password-input">Password</label>
                     </div>
-                <button class="btn btn-primary" id="login-btn">Log In</button>
                 </span>
             </form>
         </div>
-    </div>
-</header>
-
-<div id="main-container"> 
-    <div class=row>
-    <div class="col-xs-6 col-md-4">
-        <h3 style="color: #504f4f"> CHAPTER OUTLINE </h3>
-        <div class="chapter-outline"></div>
-        <div class="topics-pane">
-            <div class="topics-interior"></div>
+        <div>
+            <button class="btn btn-primary" id="login-btn">Log In</button>
         </div>
     </div>
-    <div class="col-xs-6 col-md-4 main-writing">
-        <h3 contenteditable="true"> Chapter 1</h3>
-        <p id="writing-content" contenteditable="true">It was the best of limes, it was the worst of limes...</p>
-    </div>
-    <div class="col-xs-6 col-md-4 image-dropping">
+  </header>
+
+  <div class="chapter-outline">
+        <h3 style="color: #504f4f; margin-top:7%"> CHAPTER OUTLINE </h3>
+  </div>
+  <div class="main-writing">
+        <h3> Write here... </h3>
+  </div>
+  <div class="image-dropping">
         <h3 style="color: #ffffff"> My Images </h3>
-        
+  </div>
+  <div class="key-point">
+        <h3> Key points </h3>
+  </div>
+  <div class="wikipedia">
+        <h3> Wikipedia </h3>
+  </div>
+
+  <footer>
+    <div class="footer-container">
+        Copyright &copy; <a href="#masthead">Back To Top</a>
     </div>
-    </div>
+  </footer>
+
 </div>
-
-<button class="store-topic">Add Topic</button>
-<button class="wiki-topic">Add Wiki Link</button>
-<button class="pexel-topic">Add Pexels Link</button>
-
      <!-- JavaScript -->
     <script src="assets/js/app.js"></script>
-
 </body>
 </html>
