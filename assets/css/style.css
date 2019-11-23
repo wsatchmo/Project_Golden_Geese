@@ -1,17 +1,10 @@
-<<<<<<< HEAD
-.page-box{
-    height: 500px;
-    width: 50%;
-    margin: 50px;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
 #ref-images {
     width: 350px;
     height: 500px;
     padding: 10px;
     border: 3px solid #aaaaaa;
-=======
+}
+
 /* The navigation menu */
 .navbar {
     overflow: hidden;
@@ -135,7 +128,7 @@ h3 {
 .chapter-outline {
     background: url("../images/notepad-image.jpg");
     background-size: cover;
-    min-height: 300px;
+    height: 200px;
 }
 
 /* main writing css*/
@@ -151,4 +144,22 @@ h3 {
     background-color: #030303;
     min-height: 300px;
 }
->>>>>>> 455ed402ac2500a166fbacc880305060df79fb33
+
+.topics-pane{
+  height: 200px;
+  background-color: #333333;
+}
+
+.topic-circle{
+  width: 50px; 
+  height: 50px; 
+  border-radius: 50%; 
+  margin: 5px; 
+  float: left;
+  border: 2px black solid;
+}
+
+.topic-text{
+  color: grey;
+  mix-blend-mode: screen;
+}

@@ -67,19 +67,27 @@
 
 <div id="main-container"> 
     <div class=row>
-    <div class="col-xs-6 col-md-4 chapter-outline">
+    <div class="col-xs-6 col-md-4">
         <h3 style="color: #504f4f"> CHAPTER OUTLINE </h3>
+        <div class="chapter-outline"></div>
+        <div class="topics-pane">
+            <div class="topics-interior"></div>
+        </div>
     </div>
     <div class="col-xs-6 col-md-4 main-writing">
-        <h3> Write here... </h3>
+        <h3 contenteditable="true"> Chapter 1</h3>
+        <p id="writing-content" contenteditable="true">It was the best of limes, it was the worst of limes...</p>
     </div>
     <div class="col-xs-6 col-md-4 image-dropping">
         <h3 style="color: #ffffff"> My Images </h3>
+        
     </div>
     </div>
 </div>
 
 <button class="store-topic">Add Topic</button>
+<button class="wiki-topic">Add Wiki Link</button>
+<button class="pexel-topic">Add Pexels Link</button>
 
      <!-- JavaScript -->
     <script src="assets/js/app.js"></script>
