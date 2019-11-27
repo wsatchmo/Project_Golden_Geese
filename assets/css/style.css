@@ -69,7 +69,8 @@
 
   /* Login form */
   .form-group {
-    float: right;
+    align-content: right;
+    display: inline-block;
     color: #ffffff;
     text-align: center;
     padding: 5px 5px;
