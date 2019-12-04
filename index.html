@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Project</title>
+    <title>WORDCLOUD</title>
       <!-- Bootstrap -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -16,50 +16,35 @@
   <!-- Moment.js Reference -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
 </head>
+
 <body>
 <div class="container">
 <!-- top tab bar for nav and login form-->
   <header id="masthead">
-    <div class="navbar">
-        <a href="#home">Home</a>
-        <div class="subnav">
-            <button class="subnavbtn">File <i class="fa fa-caret-down"></i></button>
-            <div class="subnav-content">
-            <a href="#open">Open</a>
-            <a href="#save">Save</a>
-            <a href="#exit">Exit</a>
-            </div>
-        </div>
-        <div class="subnav">
-            <button class="subnavbtn">Edit <i class="fa fa-caret-down"></i></button>
-            <div class="subnav-content">
-            <a href="#undo">Undo</a>
-            <a href="#redo">Redo</a>
-            </div>
-        </div>
-        <div class="subnav">
-            <button class="subnavbtn">Help <i class="fa fa-caret-down"></i></button>
-            <div class="subnav-content">
-            <a href="#faq">FAQ</a>
-            <a href="#contact">Contact</a>
-            </div>
-        </div>
+    <div class="col-md-12 navbar">
+        <div><img src="/assets/images/wordcloud.png" id="logo" alt="Word Cloud's Logo!"></div>
         <div>
             <form>
                 <span class="login">
                     <div class="form-group">
                     <input class="form-control" id="username-input" placeholder="" type="text">
-                    <label for="username-input">Username</label>
+                    <label for="username-input">Email</label>
                     </div>
                     <div class="form-group">
                     <input class="form-control" id="password-input" placeholder="" type="text">
                     <label for="password-input">Password</label>
+                    <label>
+                        <input type="checkbox" class="filled-in" onclick="myFunction()" checked="unchecked"/>
+                        <span>Show Password</span>
+                    </label>
                     </div>
                 </span>
             </form>
         </div>
         <div>
-            <button class="btn btn-primary" id="login-btn">Log In</button>
+            <button class="btn btn-primary" id="login-btn" style="margin-left: 35px;">Sign In</button>
+            <button class="btn btn-primary" id="new-user-btn">Create Account</button>
+            <button class="btn btn-primary" id="signout-btn" onclick="signOutUser()">Sign Out</button>
         </div>
     </div>
   </header>
@@ -69,16 +54,63 @@
   </div>
   <div class="main-writing">
         <h3> Write here... </h3>
+        <textarea id="content-box">It was the best of dimes it was the worst of dimes...</textarea>
   </div>
   <div class="image-dropping">
         <h3 style="color: #ffffff"> My Images </h3>
+        <form class="searchable">
+            <span class="search">
+                <div class="form-group">
+                <input class="form-control" id="photo-input" placeholder="" type="text">
+                </div>
+                <button class="btn btn-primary" id="search-btn">Search</button>
+            </span>
+            <button class="btn btn-primary" id="newopen-btn">Open new Tab to see Pictures</button>
+        </form>
   </div>
   <div class="key-point">
         <h3> Key points </h3>
   </div>
   <div class="wikipedia">
         <h3> Wikipedia </h3>
+          <form class="searchable">
+            <span class="wikisearch">
+                <div class="form-group">
+                <input class="form-control" id="wiki-input" placeholder="" type="text">
+                </div>
+                <button class="btn btn-primary" id="wiki-btn">Wiki!</button>
+            </span>
+          </form>
   </div>
+
+  <p class="autosave-datetime"></p>
+  ​
+      <!-- Modal 1 -->
+      <div id="modal1" class="modal" style="height: 300px;">
+          <div class="modal-content">
+          <h4>Incorrect Password</h4>
+          <p>Would you like to reset your password via email?</p>
+          </div>
+          <div class="modal-footer">
+          <a href="#!" class="modal-close waves-effect waves-green btn-flat" onclick="passwordReset()">Yes</a>
+          </div>
+      </div>
+  ​
+      <!-- Modal 2 -->
+      <div id="modal2" class="modal" style="height: 300px;">
+          <div class="modal-content">
+          <h4>Password Reset Sent!</h4>
+          <p>Please check your email to reset your password</p>
+          </div>
+      </div>
+      
+      <!-- Modal 3 -->
+      <div id="modal3" class="modal" style="height: 300px;">
+          <div class="modal-content">
+          <h4>Signed Out</h4>
+          <p>You have been signed out. Please sign in using your email and password</p>
+          </div>
+      </div>  
 
   <footer>
     <div class="footer-container">
@@ -87,7 +119,17 @@
   </footer>
 
 </div>
+    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-app.js"></script>
+    ​
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-database.js"></script>
+
      <!-- JavaScript -->
+    <script src="assets/js/pexels.js"></script>
     <script src="assets/js/app.js"></script>
+    <script src="assets/js/login.js"></script>
 </body>
 </html>
