@@ -13,15 +13,47 @@ firebase.initializeApp(config);
 // Get a reference to the database service
 var database = firebase.database();
 
+//Set password to ***** and checkbox to [ ] on page load
+window.onload = function() {
+    var passwordInput = document.getElementById("password-input");
+    var passwordCheckbox = document.getElementById("password-checkbox");
+    passwordInput.type = "password";
+    passwordCheckbox.checked = false;
+    console.log("Password Hidden")
+}
+
 //Show password function:
-function myFunction() {
-    var x = document.getElementById("password-input");
-    if (x.type === "password") {
-      x.type = "text";
+function showPassword() {
+    var passwordInput = document.getElementById("password-input");
+    if (passwordInput.type === "password") {
+        passwordInput.type = "text";
     } else {
-      x.type = "password";
+        passwordInput.type = "password";
     }
 }
+
+//function to get currently signed in user on page load
+$( document ).ready(function() {
+    firebase.auth().onAuthStateChanged(function(user) {
+        var user = firebase.auth().currentUser;     
+        if (user && user != null) {
+            var userId = firebase.auth().currentUser.uid;
+            firebase.database().ref('/users/' + userId + '/text').once('value').then(function(snapshot) {
+                console.log("text snapshot: ");
+                console.log(snapshot);
+                $("#content-box").text(snapshot.node_.value_);
+            });
+            loadTopics(userId);
+        } else {
+        // No user is signed in.
+        console.log("No User Logged In");
+        }
+    });
+});
+
+// .__.  .  .  .___.  .__.   __.  .__.  .  .  .___
+// [__]  |  |    |    |  |  (__   [__]  \  /  [__ 
+// |  |  |__|    |    |__|  .__)  |  |   \/   [___
 
 //timer to autosave to database after a user has typed in the text field
 var typingTimer;                
@@ -44,7 +76,7 @@ textInput.on('keydown', function () {
 function doneTyping () {
     console.log("Done typing");
     //save the data to Firebase
-    var textBody = $("#content-box").val();
+    var textBody = $("#content-box").text();
     console.log(textBody);
     var user = firebase.auth().currentUser;
     var userId = user.uid;
@@ -74,24 +106,9 @@ function doneTyping () {
     }
 }
 
-//function to get currently signed in user
-$( document ).ready(function() {
-    firebase.auth().onAuthStateChanged(function(user) {
-        var user = firebase.auth().currentUser;     
-        if (user && user != null) {
-            var userId = firebase.auth().currentUser.uid;
-            return firebase.database().ref('/users/' + userId + '/text').once('value').then(function(snapshot) {
-                console.log(snapshot);
-                $("#content-box").val(snapshot.node_.value_);
-            });
-        } else {
-        // No user is signed in.
-        console.log("No User Logged In");
-        }
-    });
-});
-
-//================NEW USER=================
+//  __.  ._.  .__   .  .    .  .  .__ 
+// (__    |   [ __  |\ |    |  |  [__)
+// .__)  _|_  [_./  | \|    |__|  |  
 
 // attach event listener to newuser button
 $("#new-user-btn").on("click", function(event) { //get user info
@@ -110,20 +127,52 @@ function createUser(email, password){
     firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
         var errorCode = error.code;
         var errorMessage = error.message;
+        userExists(errorCode);
         console.log(errorCode, errorMessage);
+        var topics = [];
+        var topicPush = topics;
+        // make a request to firebase 
+        var user = firebase.auth().currentUser;
+        var userId = user.uid;
+        if (user && user != null) {
+            //push the array to firebase
+            firebase.database().ref('users/' + userId ).child('topics').set(
+                topicPush
+                //user text
+            );
+            $("#topic-input").val("");
+        } else {
+            $(document).ready(function(){
+                $('#modal4').modal('open');
+            });
+        }
+    });
+    $("#content-box").text("");
+    $("#topics-interior").empty();
+    welcomeUser();
+}
+
+function userExists(errorCode){
+    if (errorCode){
+        //modal for 'user already exists, cannot create account'
+        $(document).ready(function(){
+            $('#modal6').modal('open');
+        });
+        return;
+    } 
+}
+
+//Modal function for signup
+function welcomeUser(){
+    //Modal to welcome new users to wordcloud
+    $(document).ready(function(){
+        $('#modal7').modal('open');
     });
 }
 
-//Writing user data to the Database
-function writeUserData(userId, name, email) {
-    firebase.database().ref('users/' + userId).set({
-      username: name,
-      email: email,
-      profile_picture : imageUrl
-    });
-}
-
-//================LOGIN=================
+// .     .__.  .__   ._.  .  .
+// |     |  |  [ __   |   |\ |
+// |___  |__|  [_./  _|_  | \|
 
 // attach event listener to login button
 $("#login-btn").on("click", function(event) { //get user info
@@ -146,17 +195,22 @@ function signInUser(email, password){
             $('#modal1').modal('open');
         });
     });
-    var user = firebase.auth().currentUser;     
+    var user = firebase.auth().currentUser;    
     if (user && user != null) {
         //load text to text box once signed in
         var userId = firebase.auth().currentUser.uid;
-        return firebase.database().ref('/users/' + userId + '/text').once('value').then(function(snapshot) {
+        firebase.database().ref('/users/' + userId + '/text').once('value').then(function(snapshot) {
+            console.log("text snapshot: ");
             console.log(snapshot);
-            $("#content-box").val(snapshot.node_.value_);
+            $("#content-box").text(snapshot.node_.value_);
         });
+        loadTopics(userId);
     } 
 }
 
+//==================PASSWORD RESET, SIGNOUT==================
+
+//password reset function
 function passwordReset(){
     var email = $("#username-input").val().trim();
     console.log("Email: " + email);
@@ -175,6 +229,7 @@ function passwordReset(){
     }
 }
 
+//user signout function
 function signOutUser(){
     firebase.auth().signOut().then(function() {
         console.log('Signed Out');
@@ -184,17 +239,11 @@ function signOutUser(){
     $(document).ready(function(){
         $('#modal3').modal('open');
     });
+    $("#content-box").text("");
+    $(".topic-circle").remove();
 }
 
+//For Modals
 $(document).ready(function(){
     $('.modal').modal();
 });
-
-//* * * TODO _________________________________________________________ 
-//Load the topics arrays to the document
-
-//Load all of a user's files in the file tab
-    //When a user opens the file, its corresponding text appears below
-    //Also able to make new in file tab
-
-//Prevent a request from being made to pexels without login

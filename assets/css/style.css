@@ -1,49 +1,82 @@
 /* The navigation menu */
 .navbar {
-    overflow: hidden;
-    background-color: #333333;
-  }
+  overflow: hidden;
+  background-color: #333333;
+}
   
 #logo {
   float: left;
-  width: 275px;
-  height: 50px;
-  margin-top: 10px;
+  width: 100%;
+  margin-top: 20px;
   margin-right: 0px;
 }
 
-  /* Login form */
-  .form-group {
-    align-content: right;
-    display: inline-block;
-    color: #ffffff;
-    text-align: center;
-    padding: 5px 5px;
-    text-decoration: none;
-    margin-bottom: 0px;
-    margin-top: 5px;
-  }
+/* Login form */
+.form-group {
+  align-content: right;
+  display: inline-block;
+  color: #ffffff;
+  text-align: center;
+  padding: 5px 5px;
+  text-decoration: none;
+  margin-bottom: 0px;
 
-  /* Login button*/
-  .btn {
-    font-size: 10px;
-    border: none;
-    outline: #a7a5a5;
-    color: #ffffff;
-    background-color: #a7a5a5;
-    font-family: inherit;
-  }
-  
-  .btn:hover {
-      background-color: #525050;
-  }
+}
 
-  .login {
-    position: relative;
-    top: 5px;
-    right: -22%;
-    font-size: 25%;
-    display: inline-block;
+.login-buttons{
+  float: right;
+}
+
+#username-input{
+  color: #b0eff3;;
+}
+
+#show-pass{
+  font-size: 12px;
+  display: inline-block;
+}
+
+#password-input{
+  color: #b0eff3;;
+}
+
+.show-password{
+  display: block;
+}
+
+/* Login form */
+.search-form {
+  align-content: right;
+  display: inline-block;
+  color: #ffffff;
+  text-align: center;
+  padding: 5px 5px;
+  text-decoration: none;
+  margin-bottom: 0px;
+  width: 50%;
+}
+
+/* Login button*/
+.btn {
+  font-size: 10px;
+  border: none;
+  outline: #a7a5a5;
+  color: #ffffff;
+  background-color: #a7a5a5;
+  font-family: inherit;
+}
+
+.searcher{
+  float: right;
+}
+
+.btn:hover {
+  background-color: #525050;
+}
+
+.login-div {
+  top: 5px;
+  font-size: 25%;
 }
 
 /* main page layout */
@@ -52,11 +85,11 @@
 
   grid-template-areas:
     "header header header"
-    "nav content side"
+    "content1 content side"
     "content1 content content2"
     "footer footer footer";
 
-  grid-template-columns: 300px 1fr 300px;
+  grid-template-columns: 1fr 2fr 1fr;
   grid-template-rows: auto 1fr auto;
   grid-gap: 10px;
 
@@ -74,85 +107,84 @@ header {
 
 .main-writing {
   grid-area: content;
+  overflow: scroll;
 }
 
 .image-dropping {
   grid-area: side;
-  
 }
 
-.key-point {
-  grid-area: content1; 
-}
-
-.wikipedia {
+.bighuge-thesaurus {
   grid-area: content2;
   float: right;
+  min-height: 300px;
+  overflow:scroll;
+  display: inline-flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+  border: 2px solid #777474;
 }
 
-footer {
-  grid-area: footer;
+#thesaurus-output{
+  width: 200px;
 }
 
-/* body column css*/
-.col-xs-6,
-.col-md-4 {
-    margin: 0;
-    vertical-align: baseline;
-    font-size: 100%;
-    font: inherit;
-    border: 0;
-    padding: 5px;
-}
-
-h3 {
-    text-align: center;
-    padding-top: 2%;
-    font-family: Georgia, Times, 'Times New Roman', serif;
-}
-
-/* chapter outline css*/
-.chapter-outline {
-    background: url("../images/notepad-image.jpg");
-    background-size: cover;
-    min-height: 300px;
+.pane-text{
+  padding-top: 2%;
+  margin-top: 10px;
+  font-size: x-large;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 /* main writing css*/
 .main-writing {
-    background: url("../images/white-lined-paper.jpg");
-    background-size: cover;
-    min-height: 500px;
+  background: url("../images/white-lined-paper.jpg");
+  background-size: cover;
+  min-height: 500px;
 }
 
 /* image dropping css*/
-.image-dropping {
-
-    background-color: #030303;
-    min-height: 300px;
-    overflow:scroll;
+.ref-image {
+  background-color: #030303;
+  min-height: 300px;
+  overflow:scroll;
+  display: inline-flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+  border: 2px solid black;
 }
 
 /* key-point css*/
 .key-point {
+  grid-area: content1;
   background-color: #777474;
   min-height: 300px;
-}
-
-/* wikipedia css*/
-.wikipedia {
-  background-color: #777474;
-  min-height: 300px;
+  overflow:scroll;
+  float: left;
+  display: inline-flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: row;
 }
 
 /* footer container css*/
 footer {
+  grid-area: footer;
   text-align: center;
   padding: 20px;
   background-color: #4e4e4e;
-  min-height: 100px;
+  min-height: 60px;
   width: 100%;
   bottom: 0px;
+  color: #a7a5a5;
+}
+
+#back-to-top{
+  font-size: 10px;
+  color: darkcyan;
+  margin-bottom: 10px;
 }
 
 /* Will's Stuff */
@@ -169,8 +201,8 @@ footer {
   border: 2px black solid;
 }
 .topic-text{
-  color: grey;
-  mix-blend-mode: screen;
+  color: white;
+  mix-blend-mode: luminosity;
 }
 #content-box{
   width: 100%;
@@ -179,6 +211,12 @@ footer {
 .flex-contain{
   display: flex;
 }
+
 .autosave-datetime{
   float: right;
+  color: #ffffff;
+}
+
+.highlight { 
+  background-color: yellow 
 }

@@ -2,7 +2,6 @@ function makePexelsRequest (queryParamater){
   // This is our API key
   var APIKey = "563492ad6f9170000100000100165f60dc7644b4853c25a2932b8457";
 
-
   // Here we are building the URL we need to query the database
   var queryURL = `https://api.pexels.com/v1/search?query=${queryParamater}&per_page=15&page=1`;
   console.log(queryURL);
@@ -33,7 +32,7 @@ function handleResponse (photos){
     console.log(photo);
     var imageContainer = $(".image-dropping");
     var image = `<img src="${photo.src.small}">`
-    imageContainer.append(image);
+    imageContainer.prepend(image);
   }
 }
 
