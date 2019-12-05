@@ -1,40 +1,42 @@
-
-//Display text on the main page as it is typed
-    //Save it automatically if possible
-
-
-//storing chapters -- as objects or arrays?
-//button and hotkey to make chapters
-    //chapters change number depending on their order
-//Display chapters larger (as headers?)
-//Chapter names and numbers are added to the outline table in order
-    //Click a chapter in the outline table to go to that chapter
-    
-    
-//Reference image section populates images
-    //file>open and drag and drop
-        //function to add images to the reference viewer window
-        //function to include images on drag and drop
-        //function to include images on file>open
-        //function to export reference table
-    //function to separate reference images by topic
-    //Function to tie an array or object of topics to the reference viewer
-
-
-//Storing specific words or phrases in objects or arrays to be used in functions
-    //topics
-    //Non-topic items to be fed to API's
-
-var topics = [];
-var wikiTopics = [];
+var topics = []; //pull topics from firebase
 var pexelTopics = [];
-var topicsPane = $(".topics-interior");
+var topicsPane = $("#topics-interior");
+
+//Loading topics to the page
+function loadTopics(userId){
+    var keys = [];
+    topics = [];
+    var tops = firebase.database().ref('/users/' + userId).child('topics').orderByChild('topics');
+    tops.once('value').then(function(snapshot) {
+        snapshot.forEach(function(item) {
+            var itemVal = item.val();
+            keys.push(itemVal);
+        });
+        for (let i=0; i < keys.length; i++) {
+            var randomColor = "#"+(Math.random()*0xFFFFFF<<0).toString(16);
+            var text = keys[i];
+            if (topics.indexOf(text) === -1){
+                topics.push(text);      
+                topics.sort();
+                var newTopic = $("<div class='topic-circle' style='background-color: " + randomColor + "; display: table; overflow: hidden;'></div>");
+                var topicText = $("<p class='topic-text text-center' style='display: table-cell; vertical-align: middle;'>" + text + "</p>")
+                newTopic.append(topicText);
+                topicsPane.append(newTopic);
+            }
+        }
+        console.log("topics snapshot: ");
+        console.log(snapshot);
+        console.log("keys: ");
+        console.log(keys);
+    });
+}
 
 //function to store selected text as a topic
-$(document).on("click", ".store-topic", function(event) {
-    event.preventDefault;
+$(document).on("click", "#store-topic", function(event) {
+    event.preventDefault();
     var randomColor = "#"+(Math.random()*0xFFFFFF<<0).toString(16);
-    var text = window.getSelection().toString();
+    var text = $("#topic-input").val().toString().trim();
+    console.log("text: " + text);
     if (topics.indexOf(text) === -1){
         var textFormat = (text.toLowerCase().charAt(0).toUpperCase() + text.slice(1)).trim();
         topics.push(textFormat);      
@@ -44,49 +46,48 @@ $(document).on("click", ".store-topic", function(event) {
         var topicText = $("<p class='topic-text text-center'>" + textFormat + "</p>")
         newTopic.append(topicText);
         topicsPane.append(newTopic);
-        linkText();
     } else {
-        console.log("Topic already stored!")
+        console.log("Topic already stored");
+        $(document).ready(function(){
+            $('#modal5').modal('open');
+        });
+    }
+    var topicPush = topics;
+    // make a request to firebase 
+    var user = firebase.auth().currentUser;
+    var userId = user.uid;
+    if (user && user != null) {
+        //push the array to firebase
+        firebase.database().ref('users/' + userId ).child('topics').set(
+            topicPush
+            //user text
+        );
+        $("#topic-input").val("");
+    } else {
+        $(document).ready(function(){
+            $('#modal4').modal('open');
+        });
     }
 });
 
-//function to store selected text as a wikipedia lookup topic
-$(document).on("click", ".wiki-topic", function(event) {
-    event.preventDefault;
-    var wikiText = window.getSelection().toString();
-    wikiTopics.push(wikiText.toLowerCase());
-    wikiTopics.sort();
-    console.log(wikiTopics);
-});
-
-//function to store selected text as a pexels lookup topic
-$(document).on("click", ".pexel-topic", function(event) {
-    event.preventDefault;
-    var pexText = window.getSelection().toString();
-    pexelTopics.push(pexText.toLowerCase());
-    pexelTopics.sort();
-    console.log(pexelTopics);
-});
-
-//Linking text in the user content to topics
-function linkText(){
-    var userContent = $("#writing-content").text();
-
-    for (var i = 0; i < topics.length; i++){
-        var currentTopic = topics[i];
-        var topicFormatted = currentTopic.trim().toLowerCase();
-        var start = userContent.toLowerCase().indexOf(topicFormatted);
-        var length = topicFormatted.length;
-        if (start > -1){
-            var stop = start + length;
-            var res = userContent.substring(start, stop);
-
-            //TODO::
-            //Ability to cycle through all instances of res as they appear in userContent
-
-        }
-        console.log(res);
+var highlight;
+$(document).on("click", ".topic-circle", function(event) {
+    event.preventDefault();
+    var node = this;
+    //get the text associated with the given topic-circle
+    var wordSearch = node.textContent;
+    
+    if (highlight === true) {
+        $('#content-box').removeHighlight(wordSearch);
+        console.log("unhighlighted " + wordSearch);
+        highlight = false;
+        return;
     }
-}
-
-//API searches the chosen topic when it is right-clicked
+    highlight = false;
+    if (wordSearch && wordSearch != null && wordSearch != undefined){
+        var contentbox = $('#content-box').val();
+        $('#content-box').highlight(wordSearch);
+        console.log("highlighted " + wordSearch);
+        highlight = true;
+    }
+});
