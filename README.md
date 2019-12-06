@@ -12,12 +12,15 @@
 •Users can write stories, articles, etc in main writing section
 
 •Users can store or delete topics in the topics pane on the left
+
 •Clicking a topic highlights all instances of that topic in the writing section
 
 •Users can search for reference images in the reference section, top right. Images are pulled from the Pexels API
+
 •Users can search for synonyms of words in the thesaurus section, bottom right. Words are pulled from the Big Huge Thesaurus API
 
 •Users must be logged in to save text and topics. Text autosaves five secinds after finishing typing. Text populates on login
+
 •If a user types their password incorrectly, they are given the option of resetting their password
 
 ```diff
@@ -25,7 +28,9 @@
 ```
 
 •Switch reference image, topics, and thesaurus panes
+
 •Drag-and-drop images from local storage into reference images pane for custom reference images
+
 •Chapter outline pane; possibly as a switchable tab in the topics pane
 
 ```diff
