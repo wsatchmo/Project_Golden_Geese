@@ -21,7 +21,7 @@
 
 •Users must be logged in to save text and topics. Text autosaves five secinds after finishing typing. Text populates on login
 
-•If a user types their password incorrectly, they are given the option of resetting their password
+•If a user types their password incorrectly, they are given the option of resetting their password via email
 
 ```diff
 ! FEATURES TO BE ADDED !
