@@ -117,39 +117,31 @@ $("#new-user-btn").on("click", function(event) { //get user info
     var email = $("#username-input").val().trim();
     var password = $("#password-input").val().trim();
     // make a request to firebase
-    //Creating user data for the AUTHENTICATION
-    createUser(email, password);
+    //Reject the email or password if firebase cannot take it in
+    if (email === "" || !email.includes("@") || !email.includes(".") || password.length() < 6){
+        $(document).ready(function(){
+            $('#modal3').modal('open');
+        });
+    } else {
+        createUser(email, password);
+    }
     password = $("#password-input").val("");
 });
 
-// new user request to firebase
-function createUser(email, password){
-    firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+//Creating user data for the authentication
+function createUser(email, password){ 
+    firebase.auth().createUserWithEmailAndPassword(email, password).then(function() {
+            welcomeUser(); //Modal to welcome new users
+        }).catch(function(error) {
         var errorCode = error.code;
         var errorMessage = error.message;
         userExists(errorCode);
         console.log(errorCode, errorMessage);
         var topics = [];
-        var topicPush = topics;
-        // make a request to firebase 
-        var user = firebase.auth().currentUser;
-        var userId = user.uid;
-        if (user && user != null) {
-            //push the array to firebase
-            firebase.database().ref('users/' + userId ).child('topics').set(
-                topicPush
-                //user text
-            );
-            $("#topic-input").val("");
-        } else {
-            $(document).ready(function(){
-                $('#modal4').modal('open');
-            });
-        }
+        console.log(topics);
     });
     $("#content-box").text("");
     $("#topics-interior").empty();
-    welcomeUser();
 }
 
 function userExists(errorCode){
@@ -236,11 +228,8 @@ function signOutUser(){
     }, function(error) {
         console.error('Sign Out Error', error);
     });
-    $(document).ready(function(){
-        $('#modal3').modal('open');
-    });
     $("#content-box").text("");
-    $(".topic-circle").remove();
+    $("#topics-interior").empty();
 }
 
 //For Modals
