@@ -45,7 +45,7 @@ function makePexelsRequest (queryParamater, page){
     ...}
 ```
 
-•If you make any changes in the **login.js** file, please be sure to input your own Firebase Config information first, so as to not mess with anyone's previously saved work. The Firebase config is as follow:
+•If you make any changes in the **login.js** file, please be sure to input your own Firebase Config information first, so as to not mess with other users' previously saved work. The Firebase config is as follow:
 
 ```js
 //Replace this config object with your own Firebase configuration ↓↓↓
