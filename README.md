@@ -1,6 +1,5 @@
-# Project_Golden_Geese
+# Wordcloud
 
-## WORDCLOUD
 ### Team members: Hyejin Kim, Chris Genel, Will Satcher  — 
 ### The Golden Geese
 
