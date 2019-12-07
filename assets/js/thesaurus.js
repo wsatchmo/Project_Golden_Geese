@@ -22,34 +22,42 @@ function getThesaurus(word){
     if (response.noun){
       var noun = response.noun;
       var nounSyn = noun.syn;
-      thesaurusOutput.append("<p style='margin-top: 10px; margin-bottom: 0px; font-size: 16px; font-weight: bold; font-style: italic;'>Noun:</p>");
-      addToPage(nounSyn);
-      console.log("nounSyn:");
-      console.log(nounSyn);
+      if (nounSyn){
+        thesaurusOutput.append("<p style='margin-top: 10px; margin-bottom: 0px; font-size: 16px; font-weight: bold; font-style: italic;'>Noun:</p>");
+        addToPage(nounSyn);
+        console.log("nounSyn:");
+        console.log(nounSyn);
+      }
     }
     if (response.verb){
       var verb = response.verb;
       var verbSyn = verb.syn;
-      thesaurusOutput.append("<p style='margin-top: 7px; margin-bottom: 0px; font-size: 16px; font-weight: bold; font-style: italic;'>Verb:</p>");
-      addToPage(verbSyn);
-      console.log("verbSyn:");
-      console.log(verbSyn);
+      if (verbSyn){
+        thesaurusOutput.append("<p style='margin-top: 7px; margin-bottom: 0px; font-size: 16px; font-weight: bold; font-style: italic;'>Verb:</p>");
+        addToPage(verbSyn);
+        console.log("verbSyn:");
+        console.log(verbSyn);
+      }
     }
     if (response.adjective){
       var adjective = response.adjective;
       var adjectiveSyn = adjective.syn;
-      thesaurusOutput.append("<p style='margin-top: 10px; margin-bottom: 0px; font-size: 16px; font-weight: bold; font-style: italic;'>Adjective:</p>");
-      addToPage(adjectiveSyn);
-      console.log("adjectiveSyn:");
-      console.log(adjectiveSyn);
+      if (adjectiveSyn){
+        thesaurusOutput.append("<p style='margin-top: 10px; margin-bottom: 0px; font-size: 16px; font-weight: bold; font-style: italic;'>Adjective:</p>");
+        addToPage(adjectiveSyn);
+        console.log("adjectiveSyn:");
+        console.log(adjectiveSyn);
+      }
     }
     if (response.adverb){
       var adverb = response.adverb;
       var adverbSyn = adverb.syn;
-      thesaurusOutput.append("<p style='margin-top: 10px; margin-bottom: 0px; font-size: 16px; font-weight: bold; font-style: italic;'>Adverb:</p>");
-      addToPage(adverbSyn);
-      console.log("adverbSyn:");
-      console.log(adverbSyn);
+      if (adverbSyn){
+        thesaurusOutput.append("<p style='margin-top: 10px; margin-bottom: 0px; font-size: 16px; font-weight: bold; font-style: italic;'>Adverb:</p>");
+        addToPage(adverbSyn);
+        console.log("adverbSyn:");
+        console.log(adverbSyn);
+      }
     }
     // call a function to put on page 
   });

@@ -215,12 +215,18 @@ header {
   margin: 5px; 
   float: left;
   border: 3px #303030 solid;
-  box-shadow: 0px 3px 6px rgba(0, 0, 0, .5);
+  box-shadow: 3px 3px 6px rgba(0, 0, 0, .5);
+  display: table; 
+  overflow: hidden;
 }
 
 .topic-text{
   color: white;
   mix-blend-mode: luminosity;
+  text-shadow: -1px 1px 4px black;
+  align-content: center; 
+  display: table-cell; 
+  vertical-align: middle;
 }
 
 #topic-input{
@@ -324,6 +330,7 @@ footer {
 .topic-circle {
   background-repeat: no-repeat;
   background-position: -120px -120px, 0 0;
+  z-index: 2;
   
   background-image: -webkit-linear-gradient(
     top left,

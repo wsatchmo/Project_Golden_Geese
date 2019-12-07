@@ -18,8 +18,8 @@ function loadTopics(userId){
             if (topics.indexOf(text) === -1){
                 topics.push(text);      
                 topics.sort();
-                var newTopic = $("<div class='topic-circle' id=" + text + " style='background-color: " + randomColor + "; display: table; overflow: hidden;'></div>");
-                var topicText = $("<p class='topic-text text-center' style='display: table-cell; vertical-align: middle;'>" + text + "</p>")
+                var newTopic = $("<div class='topic-circle' id=" + text + " style='background-color: " + randomColor + ";'></div>");
+                var topicText = $("<p class='topic-text text-center'>" + text + "</p>")
                 newTopic.append(topicText);
                 topicsPane.append(newTopic);
             }
@@ -42,12 +42,11 @@ $(document).on("click", "#store-topic", function(event) {
         var text = $("#topic-input").val().toString().trim();
         var textFormat = (text.charAt(0).toUpperCase() + text.slice(1)).trim();
         console.log("Formatted text: " + textFormat);
-        if (topics.indexOf(textFormat) === -1){
-            
+        if (topics.indexOf(textFormat) === -1 && text != ""){
             topics.push(textFormat);      
             topics.sort();
             console.log(topics);
-            var newTopic = $("<div id=" + textFormat + " class='topic-circle' style='background-color: " + randomColor + "; display: table; overflow: hidden;'></div>");
+            var newTopic = $("<div id=" + textFormat + " class='topic-circle' style='background-color: " + randomColor + ";'></div>");
             var topicText = $("<p class='topic-text text-center' style='display: table-cell; vertical-align: middle;'>" + textFormat + "</p>")
             newTopic.append(topicText);
             topicsPane.append(newTopic);
@@ -56,7 +55,7 @@ $(document).on("click", "#store-topic", function(event) {
                 topics
                 //user text
             );
-        } else {
+        } else if (topics.indexOf(textFormat) >= 0 && text != "") {
             var arrIndex = topics.indexOf(textFormat);
             topics.splice(arrIndex, 1);
             //delete this topic
@@ -71,6 +70,8 @@ $(document).on("click", "#store-topic", function(event) {
                 topics
                 //user text
             );
+        } else {
+            console.log("No text entered; topic must be at least one character")
         }
         $("#topic-input").val("");
     } else {
