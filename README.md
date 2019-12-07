@@ -2,7 +2,7 @@
 
 ### A cloud-storage word processor for story writers
 
-##### Team members: Hyejin Kim (@cshjnim), Chris Genel (@cgenel), Will Satcher  — The Golden Geese
+##### Team members: [Hyejin Kim](https://github.com/cshjnim "Hyejin's Github Page"), [Chris Genel](https://github.com/cgenel "Chris' Github Page"), Will Satcher  — *The Golden Geese*
 
 ```diff
 + HOW IT WORKS +
