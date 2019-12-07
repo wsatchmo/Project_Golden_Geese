@@ -17,7 +17,7 @@
 
 •Users can search for synonyms of words in the thesaurus section, bottom right. Words are pulled from the Big Huge Thesaurus API
 
-•Users must be logged in to save text and topics. Text autosaves five secinds after finishing typing. Text populates on login
+•Users must be logged in to save text and topics. Text autosaves five seconds after user finishes typing in the writing section. Text and stored topics populate on login
 
 •If a user types their password incorrectly, they are given the option of resetting their password via email
 
@@ -34,7 +34,7 @@
 ```diff
 # CODE NOTES #
 ```
-•If you use this app frequequently, there is a possibility the API will run out. You can register for an API Key from Pexels or Big Huge Thesaurus fairly easily. To use your own API Key, simply insert it in your code in the **pexels.js** or **thesaurus.js** files as follows:
+•If you use this app frequently, there is a possibility the API will hit its request quota. You can register for an API Key from [Pexels](https://www.pexels.com/api/) or [Big Huge Thesaurus](https://words.bighugelabs.com/site/api) fairly easily. To use your own API Key, simply insert it in your code in the **pexels.js** or **thesaurus.js** files as follows:
 
 ```js
 function makePexelsRequest (queryParamater, page){
@@ -43,7 +43,7 @@ function makePexelsRequest (queryParamater, page){
     ...}
 ```
 
-•If you make any changes in the **login.js** file, please be sure to input your own Firebase Config information first, so as to not mess with other users' previously saved work. The Firebase config is as follow:
+•If you make any changes in the **login.js** file, please be sure to input your own Firebase config information (found in Firebase project settings) first so there is no chance you overwrite another user's previously saved work. The Firebase config is as follows:
 
 ```js
 //Replace this config object with your own Firebase configuration ↓↓↓
@@ -59,10 +59,10 @@ var config = {
 firebase.initializeApp(config);
 ```
 
-•If for some reason you would prefer to see anyonyms from the Thesaurus, you can change the code in **thesaurus.js** as follows:
+•If for some reason you would prefer to see anytonyms from the Thesaurus, you can change the code in **thesaurus.js** as follows:
 
 ```js
-var nounSyn = noun.syn; //Simply find this variable and change it to this:
+var nounSyn = noun.syn; //Simply find this variable and change it as shown below--
 var nounSyn = noun.ant; //Note that you will no longer see synonyms for words entered
 ```
 
