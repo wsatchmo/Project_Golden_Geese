@@ -7,7 +7,7 @@
 ```diff
 + HOW IT WORKS +
 ```
-•Users can write stories, articles, etc in main writing section
+•Users write stories, articles, etc. in main writing section
 
 •Users can store or delete topics in the topics pane on the left
 
