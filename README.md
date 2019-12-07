@@ -1,9 +1,8 @@
 # Wordcloud
 
-### Team members: Hyejin Kim, Chris Genel, Will Satcher  — 
-### The Golden Geese
+## A cloud-storage word processor for writers
 
-##### A cloud-storage word processor for writers
+##### Team members: Hyejin Kim, Chris Genel, Will Satcher  — The Golden Geese
 
 ```diff
 + HOW IT WORKS +
