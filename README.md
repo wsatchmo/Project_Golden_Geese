@@ -1,6 +1,6 @@
 # Wordcloud
 
-## A cloud-storage word processor for writers
+### A cloud-storage word processor for writers
 
 ##### Team members: Hyejin Kim, Chris Genel, Will Satcher  — The Golden Geese
 
