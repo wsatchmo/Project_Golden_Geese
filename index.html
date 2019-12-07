@@ -24,14 +24,14 @@
 </head>
 
     <body>
-        <div class="container">
+        <div id="document-main" class="container">
             <!-- top tab bar for nav and login form-->
             <header id="masthead">
                 <div class="navbar">
-                    <div class="col-md-6 col-sm-6 col-xs-6">
+                    <div id="logo-div" class="logo-autosave col-md-6 col-sm-6 col-xs-6">
                         <img src="assets/images/wordcloud.png" id="logo" alt="WordCloud's Logo!">
                         <br>
-                        <p class="autosave-datetime"> </p>
+                        <p class="autosave-datetime"></p>
                     </div>
                     <div id="login-group" class="login-div col-md-6 col-sm-6 col-xs-6">
                         <form class="form-group">
@@ -53,7 +53,7 @@
                             </span>
                         
                             <div class="login-buttons">
-                                <button class="btn btn-primary" id="login-btn" style="margin-left: 35px;">Sign In</button>
+                                <button class="btn btn-primary" id="login-btn">Sign In</button>
                                 <button class="btn btn-primary" id="new-user-btn">Create Account</button>
                                 <button class="btn btn-primary" id="signout-btn" onclick="signOutUser()">Sign Out</button>
                             </div>
@@ -63,13 +63,13 @@
             </header>
 
             <div class="key-point">
-                <h3 class="pane-text">Topics</h3>
+                <h3 class="pane-text" style="color: #ffffff">Topics</h3>
                 <form class="searchable">
                     <span class="topic">
                         <div class="search-form">
-                        <input class="form-control" id="topic-input" placeholder="" type="text">
+                        <input class="search-mint form-control" id="topic-input" placeholder="" type="text">
                         </div>
-                        <button class="btn btn-primary searcher" id="store-topic">Create</button>
+                        <button class="btn btn-primary searcher" id="store-topic">Toggle</button>
                     </span>
                 </form>
                 <div id="topics-interior"></div>
@@ -78,7 +78,7 @@
                 <div id="content-box" contenteditable="true">It was the best of dimes it was the worst of dimes...</div>
             </div>
             <div class="ref-image">
-                <h3 class="pane-text" style="color: #ffffff"> Ref Images </h3>
+                <h3 class="pane-text" style="color: #ffffff"> References </h3>
                 <form class="searchable">
                     <span class="search">
                         <div class="search-form">
@@ -106,7 +106,7 @@
             
             ​
             <!-- Modal 1 [Password Reset?] -->
-            <div id="modal1" class="modal" style="height: 300px;">
+            <div id="modal1" class="modal" style="height: 200px;">
                 <div class="modal-content">
                 <h4>Incorrect Password</h4>
                 <p>Would you like to reset your password via email?</p>
@@ -117,39 +117,40 @@
             </div>
         ​
             <!-- Modal 2 [Password Reset Sent] -->
-            <div id="modal2" class="modal" style="height: 300px;">
+            <div id="modal2" class="modal" style="height: 200px;">
                 <div class="modal-content">
                 <h4>Password Reset Sent!</h4>
                 <p>Please check your email to reset your password</p>
                 </div>
-            </div>
-            
-            <!-- Modal 3 [Signed Out] -->
-            <div id="modal3" class="modal" style="height: 300px;">
+            </div>  
+
+            <!-- Modal 3 [Invalid Email] -->
+            <div id="modal3" class="modal" style="height: 200px;">
                 <div class="modal-content">
-                <h4>Signed Out</h4>
-                <p>You have been signed out. Please sign in using your email and password</p>
+                <h4>Invalid Email or Password</h4>
+                <p>•Passwords must be at least six characters: '123456'</p>
+                <p>•Email must contain '@' and a domain: 'john@gmail.com'</p>
                 </div>
             </div>  
 
             <!-- Modal 4 [Not Logged In] -->
-            <div id="modal4" class="modal" style="height: 300px;">
+            <div id="modal4" class="modal" style="height: 140px;">
                 <div class="modal-content">
                 <h4>Please Login or Sign Up</h4>
                 <p>You must be logged in to use this feature</p>
                 </div>
             </div>  
 
-            <!-- Modal 5 [Topic Already in Array] -->
-            <div id="modal5" class="modal" style="height: 300px;">
+            <!-- Modal 5 [Topic Deleted] -->
+            <div id="modal5" class="modal" style="height: 140px;">
                 <div class="modal-content">
-                <h4>Topic Already Stored</h4>
-                <p>This topic has already been stored for future use</p>
+                <h4>Topic Deleted</h4>
+                <p id="modal5-text"></p>
                 </div>
             </div>  
             
             <!-- Modal 6 [Email in Use] -->
-            <div id="modal6" class="modal" style="height: 300px;">
+            <div id="modal6" class="modal" style="height: 200px;">
                 <div class="modal-content">
                 <h4>Email Already in Use!</h4>
                 <p>That email is already in use. Would you like to reset your password via email?</p>
@@ -160,7 +161,7 @@
             </div>
 
             <!-- Modal 7  [New Account] -->
-            <div id="modal7" class="modal" style="height: 300px;">
+            <div id="modal7" class="modal" style="height: 140px;">
                 <div class="modal-content">
                 <h4>Account Created</h4>
                 <p>Enjoy using Wordcloud!</p>

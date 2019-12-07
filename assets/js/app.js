@@ -13,12 +13,12 @@ function loadTopics(userId){
             keys.push(itemVal);
         });
         for (let i=0; i < keys.length; i++) {
-            var randomColor = "#"+(Math.random()*0xFFFFFF<<0).toString(16);
+            var randomColor = 'rgb('+Math.round(Math.random()*255)+','+Math.round(Math.random()*255)+','+Math.round(Math.random()*255)+')';
             var text = keys[i];
             if (topics.indexOf(text) === -1){
                 topics.push(text);      
                 topics.sort();
-                var newTopic = $("<div class='topic-circle' style='background-color: " + randomColor + "; display: table; overflow: hidden;'></div>");
+                var newTopic = $("<div class='topic-circle' id=" + text + " style='background-color: " + randomColor + "; display: table; overflow: hidden;'></div>");
                 var topicText = $("<p class='topic-text text-center' style='display: table-cell; vertical-align: middle;'>" + text + "</p>")
                 newTopic.append(topicText);
                 topicsPane.append(newTopic);
@@ -34,34 +34,44 @@ function loadTopics(userId){
 //function to store selected text as a topic
 $(document).on("click", "#store-topic", function(event) {
     event.preventDefault();
-    var randomColor = "#"+(Math.random()*0xFFFFFF<<0).toString(16);
-    var text = $("#topic-input").val().toString().trim();
-    console.log("text: " + text);
-    if (topics.indexOf(text) === -1){
-        var textFormat = (text.toLowerCase().charAt(0).toUpperCase() + text.slice(1)).trim();
-        topics.push(textFormat);      
-        topics.sort();
-        console.log(topics);
-        var newTopic = $("<div class='topic-circle' style='background-color: " + randomColor + ";'></div>");
-        var topicText = $("<p class='topic-text text-center'>" + textFormat + "</p>")
-        newTopic.append(topicText);
-        topicsPane.append(newTopic);
-    } else {
-        console.log("Topic already stored");
-        $(document).ready(function(){
-            $('#modal5').modal('open');
-        });
-    }
-    var topicPush = topics;
     // make a request to firebase 
     var user = firebase.auth().currentUser;
-    var userId = user.uid;
     if (user && user != null) {
-        //push the array to firebase
-        firebase.database().ref('users/' + userId ).child('topics').set(
-            topicPush
-            //user text
-        );
+        var userId = user.uid;
+        var randomColor = 'rgb('+Math.round(Math.random()*255)+','+Math.round(Math.random()*255)+','+Math.round(Math.random()*255)+')';
+        var text = $("#topic-input").val().toString().trim();
+        var textFormat = (text.charAt(0).toUpperCase() + text.slice(1)).trim();
+        console.log("Formatted text: " + textFormat);
+        if (topics.indexOf(textFormat) === -1){
+            
+            topics.push(textFormat);      
+            topics.sort();
+            console.log(topics);
+            var newTopic = $("<div id=" + textFormat + " class='topic-circle' style='background-color: " + randomColor + "; display: table; overflow: hidden;'></div>");
+            var topicText = $("<p class='topic-text text-center' style='display: table-cell; vertical-align: middle;'>" + textFormat + "</p>")
+            newTopic.append(topicText);
+            topicsPane.append(newTopic);
+            //push the array to firebase
+            firebase.database().ref('users/' + userId ).child('topics').set(
+                topics
+                //user text
+            );
+        } else {
+            var arrIndex = topics.indexOf(textFormat);
+            topics.splice(arrIndex, 1);
+            //delete this topic
+            $("#" + textFormat + "").remove();
+            
+            console.log(topics);
+            $(document).ready(function(){
+                $('#modal5').modal('open');
+                $('#modal5-text').text("'" + textFormat + "' removed from topics.");
+            });
+            firebase.database().ref('users/' + userId ).child('topics').set(
+                topics
+                //user text
+            );
+        }
         $("#topic-input").val("");
     } else {
         $(document).ready(function(){
