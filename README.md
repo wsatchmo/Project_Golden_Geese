@@ -27,9 +27,11 @@
 
 •Switch reference image, topics, and thesaurus panes
 
-•Drag-and-drop images from local storage into reference images pane for custom reference images
-
 •Chapter outline pane; possibly as a switchable tab in the topics pane
+
+•Highlight multiple chapters simultaneously; highlight color corresponds to topic button color
+
+•Drag-and-drop images from local storage into reference images pane for custom reference images - possibly a separate tab
 
 ```diff
 # CODE NOTES #
