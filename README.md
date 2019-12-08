@@ -68,6 +68,14 @@ var nounSyn = noun.syn; //Simply find this variable and change it as shown below
 var nounSyn = noun.ant; //Note that you will no longer see synonyms for words entered
 ```
 
+•To change the highlight color, simply change the background-color in the **.highlight** CSS class:
+
+```css
+.highlight { 
+  background-color: rgb(47, 255, 134);
+}
+```
+
 ##### Resources Utilized:
 ###### Firebase
 ###### Bootstrap
