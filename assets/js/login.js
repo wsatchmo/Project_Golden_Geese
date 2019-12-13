@@ -118,7 +118,7 @@ $("#new-user-btn").on("click", function(event) { //get user info
     var password = $("#password-input").val().trim();
     // make a request to firebase
     //Reject the email or password if firebase cannot take it in
-    if (email === "" || !email.includes("@") || !email.includes(".") || password.length() < 6){
+    if (email === "" || !email.includes("@") || !email.includes(".") || password.length < 6){
         $(document).ready(function(){
             $('#modal3').modal('open');
         });
