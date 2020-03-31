@@ -21,6 +21,11 @@
                                       
 */
 
+body{
+  background-image: url("../images/topography.png");
+  background-repeat: repeat;
+}
+
 header {
   grid-area: header;
 }
@@ -38,6 +43,8 @@ header {
   float: left;
   width: 100%;
   margin-right: 0px;
+  -webkit-filter: drop-shadow(.35em .35em 0px rgb(1, 88, 88)); /* Chrome, Safari, Opera */
+  filter: drop-shadow(.35em .35em 0px rgb(1, 88, 88));
 }
 
 #logo-div{
@@ -56,24 +63,25 @@ header {
 /* ======= LOGIN/SIGNUP FORM ======= */
 .form-group {
   float: right;
-  color: #ffffff;
   text-align: center;
   padding: 5px 5px;
   text-decoration: none;
   margin-bottom: 0px;
 }
 
-#username-input{
-  color: #b0eff3;
+#username-input, #password-input{
+  color: rgb(6, 136, 145); border-color: rgb(6, 136, 145)
+}
+#username-input:hover, #password-input:hover{
+  color: rgb(0, 180, 180);
+}
+#username-input::selection, #password-input::selection{
+  color: rgb(6, 245, 213);
 }
 
 #show-pass{
   font-size: 12px;
   display: inline-block;
-}
-
-#password-input{
-  color: #b0eff3;
 }
 
 .show-password{
@@ -100,12 +108,25 @@ header {
 }
 
 #login-btn{
+  padding-top: 1px;
   margin: 3px;
 }
 #new-user-btn{
   margin: 3px;
+  background-color: teal;
 }
+#new-user-btn:hover{
+  background-color: rgb(1, 88, 88);
+}
+
+#signup-cloud{
+  font-size: 1rem;
+  vertical-align: middle;
+  margin-bottom: 3px;
+}
+
 #signout-btn{
+  padding-top: 1px;
   margin: 3px;
 }
 
@@ -129,7 +150,6 @@ header {
   grid-template-columns: 1fr 2fr 1fr;
   grid-template-rows: auto 1fr auto;
   grid-gap: 10px;
-
   height: 100vh;
 }
 
@@ -139,7 +159,6 @@ header {
 
 /* ======= WRITING SECTION ======= */
 .main-writing {
-  background: url("../images/white-lined-paper.png");
   background-repeat: repeat-y;
   grid-area: content;
   overflow: scroll;
@@ -150,6 +169,12 @@ header {
   height: 100%;
   border: #333333 2px solid;
   overflow: scroll;
+  background-color: white;
+  background-repeat: repeat-y;
+  z-index: 0;
+}
+#content-box::selection{
+  color: rgb(0, 175, 175);;
 }
 
 /* ======= SEARCH FORMS FOR PANES ======= */
@@ -230,8 +255,11 @@ header {
 }
 
 #topic-input{
-  color: #b0eff3;
+  color: white;
   height: 30px;
+}
+#topic-input::selection{
+  color: rgb(0, 175, 175);
 }
 
 .key-point {
@@ -242,13 +270,16 @@ header {
 }
 
 .highlight { 
-  background-color: rgb(47, 255, 134);
+  background-color: rgb(6, 245, 213);
 }
 
 /* ======= REFERENCE IMAGES ======= */
 #photo-input{
-  color: #b0eff3;
+  color: white;
   height: 30px;
+}
+#photo-input::selection{
+  color: rgb(0, 175, 175);
 }
 
 .image-dropping {
@@ -299,6 +330,9 @@ header {
 #thesaurus-input{
   height: 30px;
 }
+#thesaurus-input::selection{
+  color: rgb(0, 175, 175);
+}
 
 /* ======= FOOTER ======= */
 footer {
@@ -312,11 +346,29 @@ footer {
   color: #a7a5a5;
 }
 
-#back-to-top{
+.foot-text{
+  color: #858383;
+}
+.foot-text:hover{
+  color: #a7a5a5;
+}
+
+.fa-cog {
+  color: #858383;
+}
+
+#toggle-dark{
   position: relative;
   font-size: 10px;
   color: darkcyan;
   bottom: 7px;
+  margin-right: 10px;
+}
+#toggle-dark:hover{
+  color: rgb(0, 167, 167)
+}
+#dark-icon{
+  font-size: .75rem;
 }
 
 /*

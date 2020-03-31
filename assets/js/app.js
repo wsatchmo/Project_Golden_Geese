@@ -1,5 +1,4 @@
 var topics = []; //pull topics from firebase
-var pexelTopics = [];
 var topicsPane = $("#topics-interior");
 
 //Loading topics to the page
@@ -24,14 +23,21 @@ function loadTopics(userId){
                 topicsPane.append(newTopic);
             }
         }
-        console.log("topics snapshot: ");
-        console.log(snapshot);
-        console.log("keys: ");
-        console.log(keys);
+        // console.log("topics snapshot: ");
+        // console.log(snapshot);
+        // console.log("keys: ");
+        // console.log(keys);
     });
 }
 
-//function to store selected text as a topic
+//  _              _          
+// | |_ ___  _ __ (_) ___ ___ 
+// | __/ _ \| '_ \| |/ __/ __|
+// | || (_) | |_) | | (__\__ \
+//  \__\___/| .__/|_|\___|___/
+//          |_|               
+
+//Function to store selected text as a topic
 $(document).on("click", "#store-topic", function(event) {
     event.preventDefault();
     // make a request to firebase 
@@ -41,11 +47,11 @@ $(document).on("click", "#store-topic", function(event) {
         var randomColor = 'rgb('+Math.round(Math.random()*255)+','+Math.round(Math.random()*255)+','+Math.round(Math.random()*255)+')';
         var text = $("#topic-input").val().toString().trim();
         var textFormat = (text.charAt(0).toUpperCase() + text.slice(1)).trim();
-        console.log("Formatted text: " + textFormat);
+        // console.log("Formatted text: " + textFormat);
         if (topics.indexOf(textFormat) === -1 && text != ""){
             topics.push(textFormat);      
             topics.sort();
-            console.log(topics);
+            // console.log(topics);
             var newTopic = $("<div id=" + textFormat + " class='topic-circle' style='background-color: " + randomColor + ";'></div>");
             var topicText = $("<p class='topic-text text-center' style='display: table-cell; vertical-align: middle;'>" + textFormat + "</p>")
             newTopic.append(topicText);
@@ -61,7 +67,7 @@ $(document).on("click", "#store-topic", function(event) {
             //delete this topic
             $("#" + textFormat + "").remove();
             
-            console.log(topics);
+            // console.log(topics);
             $(document).ready(function(){
                 $('#modal5').modal('open');
                 $('#modal5-text').text("'" + textFormat + "' removed from topics.");
@@ -70,8 +76,6 @@ $(document).on("click", "#store-topic", function(event) {
                 topics
                 //user text
             );
-        } else {
-            console.log("No text entered; topic must be at least one character")
         }
         $("#topic-input").val("");
     } else {
@@ -81,6 +85,7 @@ $(document).on("click", "#store-topic", function(event) {
     }
 });
 
+//Highlighting topics
 var highlight;
 $(document).on("click", ".topic-circle", function(event) {
     event.preventDefault();
@@ -90,7 +95,7 @@ $(document).on("click", ".topic-circle", function(event) {
     
     if (highlight === true) {
         $('#content-box').removeHighlight(wordSearch);
-        console.log("unhighlighted " + wordSearch);
+        console.info("Unhighlighted " + wordSearch);
         highlight = false;
         return;
     }
@@ -98,7 +103,43 @@ $(document).on("click", ".topic-circle", function(event) {
     if (wordSearch && wordSearch != null && wordSearch != undefined){
         var contentbox = $('#content-box').val();
         $('#content-box').highlight(wordSearch);
-        console.log("highlighted " + wordSearch);
+        console.info("Highlighted " + wordSearch);
         highlight = true;
+    }
+});
+
+
+//                                                             _.._
+//      _            _                          _            .' .-'`
+//   __| | __ _ _ __| | __  _ __ ___   ___   __| | ___     /  /
+//  / _` |/ _` | '__| |/ / | '_ ` _ \ / _ \ / _` |/ _ \    |  |
+// | (_| | (_| | |  |   <  | | | | | | (_) | (_| |  __/    \  '.___.;
+//  \__,_|\__,_|_|  |_|\_\ |_| |_| |_|\___/ \__,_|\___|     '._  _.'
+//                                                             ``             
+
+let dark = false;
+//Function to make page dark mode
+$(document).on("click", "#toggle-dark", function(event) {
+    event.preventDefault();
+
+    //If dark mode is off, change elems to turn it on
+    if (dark === false) {
+        $('#content-box').css({"background-color": "#dfdfdf"});
+        $('.bighuge-thesaurus').css({"background-color": "black"});
+        $('.bighuge-thesaurus').css({"color": "white"});
+        $('.ref-image').css({"border": "solid 2px #333333"});
+        $('#body-bg').css({"background": "url('./assets/images/connectwork.png')"});
+        dark = true;
+        return;
+    }
+    //If dark mode is on, change elems to turn it off
+    if (dark === true){
+        $('#content-box').css({"background-color": "white"});
+        $('.bighuge-thesaurus').css({"background-color": "transparent"});
+        $('.bighuge-thesaurus').css({"color": "black"});
+        $('.ref-image').css({"border": "none"});
+        $('#body-bg').css({"background": "url('./assets/images/topography.png')"});
+        dark = false;
+        return;
     }
 });

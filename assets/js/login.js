@@ -19,7 +19,7 @@ window.onload = function() {
     var passwordCheckbox = document.getElementById("password-checkbox");
     passwordInput.type = "password";
     passwordCheckbox.checked = false;
-    console.log("Password Hidden")
+    // console.info("Password Hidden");
 }
 
 //Show password function:
@@ -39,14 +39,14 @@ $( document ).ready(function() {
         if (user && user != null) {
             var userId = firebase.auth().currentUser.uid;
             firebase.database().ref('/users/' + userId + '/text').once('value').then(function(snapshot) {
-                console.log("text snapshot: ");
-                console.log(snapshot);
+                // console.log("text snapshot: ");
+                // console.log(snapshot);
                 $("#content-box").text(snapshot.node_.value_);
             });
             loadTopics(userId);
         } else {
         // No user is signed in.
-        console.log("No User Logged In");
+        console.warn("No User Logged In");
         }
     });
 });
@@ -74,13 +74,14 @@ textInput.on('keydown', function () {
 
 //user is finished typing
 function doneTyping () {
-    console.log("Done typing");
+    console.info("Saving to Firebase");
     //save the data to Firebase
     var textBody = $("#content-box").text();
-    console.log(textBody);
+    // console.log(textBody);
     var user = firebase.auth().currentUser;
     var userId = user.uid;
     if (user && user != null) {
+        //Use moment.js to get the date and time
         var today = new Date();
         var hrs = today.getHours();
         var mins = today.getMinutes();
@@ -136,14 +137,15 @@ function createUser(email, password){
         var errorCode = error.code;
         var errorMessage = error.message;
         userExists(errorCode);
-        console.log(errorCode, errorMessage);
-        var topics = [];
-        console.log(topics);
+        console.warn(errorCode, errorMessage);
+        // var topics = [];
+        // console.log(topics);
     });
     $("#content-box").text("");
     $("#topics-interior").empty();
 }
 
+//Modal in case user exists
 function userExists(errorCode){
     if (errorCode){
         //modal for 'user already exists, cannot create account'
@@ -166,7 +168,7 @@ function welcomeUser(){
 // |     |  |  [ __   |   |\ |
 // |___  |__|  [_./  _|_  | \|
 
-// attach event listener to login button
+//Attach event listener to login button
 $("#login-btn").on("click", function(event) { //get user info
     event.preventDefault(); // prevent default behavior
     // grab values from password and email fields
@@ -177,7 +179,7 @@ $("#login-btn").on("click", function(event) { //get user info
     password = $("#password-input").val("");
 });
 
-// sign in request to firebase
+//Sign in request to firebase
 function signInUser(email, password){
     firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
         var errorCode = error.code;
@@ -192,8 +194,8 @@ function signInUser(email, password){
         //load text to text box once signed in
         var userId = firebase.auth().currentUser.uid;
         firebase.database().ref('/users/' + userId + '/text').once('value').then(function(snapshot) {
-            console.log("text snapshot: ");
-            console.log(snapshot);
+            // console.log("text snapshot: ");
+            // console.log(snapshot);
             $("#content-box").text(snapshot.node_.value_);
         });
         loadTopics(userId);
@@ -205,7 +207,7 @@ function signInUser(email, password){
 //password reset function
 function passwordReset(){
     var email = $("#username-input").val().trim();
-    console.log("Email: " + email);
+    // console.log("Email: " + email);
     if (email && email != "" && email != null && email != undefined){
             //Send password reset email
         firebase.auth().sendPasswordResetEmail(email).then(function() {
@@ -224,7 +226,7 @@ function passwordReset(){
 //user signout function
 function signOutUser(){
     firebase.auth().signOut().then(function() {
-        console.log('Signed Out');
+        console.info('Signed Out');
     }, function(error) {
         console.error('Sign Out Error', error);
     });
