@@ -22,7 +22,7 @@
 •If a user types their password incorrectly, they are given the option of resetting their password via email
 
 ```diff
-! FEATURES TO BE ADDED !
+! POSSIBLE FUTURE FEATURES !
 ```
 
 •Switch reference image, topics, and thesaurus panes
