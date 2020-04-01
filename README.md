@@ -27,13 +27,13 @@
 ! POSSIBLE FUTURE FEATURES !
 ```
 
-•Switch reference image, topics, and thesaurus panes
-
 •Chapter outline pane - possibly as a separate tab in the topics pane
 
 •Highlight chapters simultaneously; highlight color corresponds to topic button color
 
 •Drag-and-drop images from local storage into reference images pane for custom references - separate tab
+
+•Ability to switch reference image, topics, and thesaurus panes (not really necessary in Firefox if familiar with right-to-left)
 
 ```diff
 # CODE NOTES #
@@ -66,7 +66,7 @@ firebase.initializeApp(config);
 •If for some reason you would prefer to see anytonyms from the Thesaurus, you can change the code in **thesaurus.js** as follows:
 
 ```js
-var nounSyn = noun.syn; //Simply find this variable and change it as shown below--
+var nounSyn = noun.syn; //Find this variable and change it as shown below--
 var nounSyn = noun.ant; //Note that you will no longer see synonyms for words entered
 ```
 
@@ -79,9 +79,9 @@ var nounSyn = noun.ant; //Note that you will no longer see synonyms for words en
 ```
 
 ##### Resources Utilized:
-###### Firebase
-###### Bootstrap
-###### Materialize
-###### Pexels Image API
-###### Big Huge Thesaurus API
-###### Johann Burkard's Highlight Plugin
+###### [Firebase](https://firebase.google.com/)
+###### [Bootstrap](https://getbootstrap.com/)
+###### [Materialize](https://materializecss.com/)
+###### [Pexels Image API](https://www.pexels.com/api/)
+###### [Big Huge Thesaurus API](https://words.bighugelabs.com/)
+###### [Johann Burkard's Highlight Plugin](https://johannburkard.de/blog/programming/javascript/highlight-javascript-text-higlighting-jquery-plugin.html)
