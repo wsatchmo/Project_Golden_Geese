@@ -21,6 +21,8 @@
 
 •If a user types their password incorrectly, they are given the option of resetting their password via email
 
+•Dark mode toggler on the footer implemented for late nights & weary-eyed writers
+
 ```diff
 ! POSSIBLE FUTURE FEATURES !
 ```
