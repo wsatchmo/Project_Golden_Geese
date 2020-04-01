@@ -1,4 +1,4 @@
-<img src="https://raw.githubusercontent.com/wsatchmo/Wordcloud/master/assets/images/wordcloud_blk.png" data-canonical-src="https://raw.githubusercontent.com/wsatchmo/Wordcloud/master/assets/images/wordcloud_blk.png" width="auto"/>
+<img src="https://raw.githubusercontent.com/wsatchmo/Wordcloud/master/assets/images/wordcloud_blk.png" data-canonical-src="https://raw.githubusercontent.com/wsatchmo/Wordcloud/master/assets/images/wordcloud_blk.png" width="100%"/>
 
 ### A cloud-storage word processor for story writers
 
