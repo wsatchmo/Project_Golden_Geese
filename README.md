@@ -1,4 +1,4 @@
-<img src="https://raw.githubusercontent.com/wsatchmo/Wordcloud/master/assets/images/wordcloud_blk.png" data-canonical-src="https://raw.githubusercontent.com/wsatchmo/Wordcloud/master/assets/images/wordcloud_blk.png" width="100%"/>
+<img src="https://raw.githubusercontent.com/wsatchmo/Wordcloud/master/assets/images/wordcloud_blk.png" data-canonical-src="https://raw.githubusercontent.com/wsatchmo/Wordcloud/master/assets/images/wordcloud_blk.png" href="https://wsatchmo.github.io/Wordcloud/" target="_blank" width="100%"/>
 
 ### A cloud-storage word processor for story writers
 
@@ -24,7 +24,14 @@
 •Dark mode toggler on the footer implemented for late nights & weary-eyed writers
 
 ```diff
-! POSSIBLE FUTURE FEATURES !
+- DEPLOYMENT -
+```
+
+#### This project is deployed [here on Github Pages](https://wsatchmo.github.io/Wordcloud/)
+
+
+```diff
+! FUTURE ADDITIONS !
 ```
 
 •Chapter outline pane - possibly as a separate tab in the topics pane
@@ -36,7 +43,7 @@
 •Ability to switch reference image, topics, and thesaurus panes (not really necessary in Firefox if familiar with right-to-left)
 
 ```diff
-# CODE NOTES #
+# NOTES #
 ```
 •If you use this app frequently, there is a possibility the API will hit its request quota. You can register for an API Key from [Pexels](https://www.pexels.com/api/) or [Big Huge Thesaurus](https://words.bighugelabs.com/site/api) fairly easily. To use your own API Key, simply insert it in your code in the **pexels.js** or **thesaurus.js** files as follows:
 
