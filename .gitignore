@@ -66,4 +66,5 @@ node_modules/
 .idea/
 .DS_Store
 
-"Icon[\r]"
+# File icon
+Icon[\r]

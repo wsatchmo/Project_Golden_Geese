@@ -1,4 +1,4 @@
-# Wordcloud
+<img src="https://raw.githubusercontent.com/wsatchmo/Wordcloud/master/assets/images/wordcloud_blk.png" data-canonical-src="https://raw.githubusercontent.com/wsatchmo/Wordcloud/master/assets/images/wordcloud_blk.png" width="auto"/>
 
 ### A cloud-storage word processor for story writers
 
@@ -22,7 +22,7 @@
 •If a user types their password incorrectly, they are given the option of resetting their password via email
 
 ```diff
-! FEATURES TO BE ADDED !
+! POSSIBLE FUTURE FEATURES !
 ```
 
 •Switch reference image, topics, and thesaurus panes
