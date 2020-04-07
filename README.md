@@ -1,4 +1,4 @@
-<img src="https://raw.githubusercontent.com/wsatchmo/Wordcloud/master/assets/images/wordcloud_blk.png" data-canonical-src="https://raw.githubusercontent.com/wsatchmo/Wordcloud/master/assets/images/wordcloud_blk.png" width="auto"/>
+<img src="https://raw.githubusercontent.com/wsatchmo/Wordcloud/master/assets/images/wordcloud_blk.png" data-canonical-src="https://raw.githubusercontent.com/wsatchmo/Wordcloud/master/assets/images/wordcloud_blk.png" width="100%"/>
 
 ### A cloud-storage word processor for story writers
 
@@ -21,11 +21,19 @@
 
 •If a user types their password incorrectly, they are given the option of resetting their password via email
 
+•Dark mode toggler on the footer implemented for late nights & weary-eyed writers
+
 ```diff
-! POSSIBLE FUTURE FEATURES !
+- DEPLOYMENT -
 ```
 
-•Switch reference image, topics, and thesaurus panes
+#### This project is deployed [here on Github Pages](https://wsatchmo.github.io/Wordcloud/)
+
+![Screenshots](/assets/images/screenshot.png)
+
+```diff
+! FUTURE ADDITIONS !
+```
 
 •Chapter outline pane - possibly as a separate tab in the topics pane
 
@@ -33,8 +41,10 @@
 
 •Drag-and-drop images from local storage into reference images pane for custom references - separate tab
 
+•Ability to switch reference image, topics, and thesaurus panes (not really necessary in Firefox if familiar with right-to-left)
+
 ```diff
-# CODE NOTES #
+# NOTES #
 ```
 •If you use this app frequently, there is a possibility the API will hit its request quota. You can register for an API Key from [Pexels](https://www.pexels.com/api/) or [Big Huge Thesaurus](https://words.bighugelabs.com/site/api) fairly easily. To use your own API Key, simply insert it in your code in the **pexels.js** or **thesaurus.js** files as follows:
 
@@ -64,7 +74,7 @@ firebase.initializeApp(config);
 •If for some reason you would prefer to see anytonyms from the Thesaurus, you can change the code in **thesaurus.js** as follows:
 
 ```js
-var nounSyn = noun.syn; //Simply find this variable and change it as shown below--
+var nounSyn = noun.syn; //Find this variable and change it as shown below--
 var nounSyn = noun.ant; //Note that you will no longer see synonyms for words entered
 ```
 
@@ -72,14 +82,14 @@ var nounSyn = noun.ant; //Note that you will no longer see synonyms for words en
 
 ```css
 .highlight { 
-  background-color: rgb(47, 255, 134);
+  background-color: `#2FFF86`;
 }
 ```
 
 ##### Resources Utilized:
-###### Firebase
-###### Bootstrap
-###### Materialize
-###### Pexels Image API
-###### Big Huge Thesaurus API
-###### Johann Burkard's Highlight Plugin
+###### [Firebase](https://firebase.google.com/)
+###### [Bootstrap](https://getbootstrap.com/)
+###### [Materialize](https://materializecss.com/)
+###### [Pexels Image API](https://www.pexels.com/api/)
+###### [Big Huge Thesaurus API](https://words.bighugelabs.com/)
+###### [Johann Burkard's Highlight Plugin](https://johannburkard.de/blog/programming/javascript/highlight-javascript-text-higlighting-jquery-plugin.html)
