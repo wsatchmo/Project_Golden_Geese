@@ -82,7 +82,7 @@ var nounSyn = noun.ant; //Note that you will no longer see synonyms for words en
 
 ```css
 .highlight { 
-  background-color: `#2FFF86`;
+  background-color: ![#2FFF86](https://placehold.it/15/2FFF86/)rgb(47, 255, 134);
 }
 ```
 
