@@ -129,6 +129,7 @@ $(document).on("click", "#toggle-dark", function(event) {
         $('.bighuge-thesaurus').css({"color": "white"});
         $('.ref-image').css({"border": "solid 2px #333333"});
         $('#body-bg').css({"background": "url('./assets/images/connectwork.png')"});
+        $('#thesaurus-input').css({"color": "white"});
         dark = true;
         return;
     }
@@ -139,6 +140,7 @@ $(document).on("click", "#toggle-dark", function(event) {
         $('.bighuge-thesaurus').css({"color": "black"});
         $('.ref-image').css({"border": "none"});
         $('#body-bg').css({"background": "url('./assets/images/topography.png')"});
+        $('#thesaurus-input').css({"color": "#495057"});
         dark = false;
         return;
     }

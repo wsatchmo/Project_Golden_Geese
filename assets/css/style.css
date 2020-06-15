@@ -329,6 +329,7 @@ header {
 
 #thesaurus-input{
   height: 30px;
+  color: #495057;
 }
 #thesaurus-input::selection{
   color: rgb(0, 175, 175);
