@@ -50,8 +50,8 @@
 
 ```js
 function makePexelsRequest (queryParamater, page){
-    // Replace this long string with your own API Key ↓↓↓
-    var APIKey = "563492ad6f9170000100000100165f60dc7644b4853c25a2932b8457"; 
+    // Enter your own API Key ↓↓↓
+    var APIKey = "[YOUR PEXELS API KEY]"; 
     ...}
 ```
 
@@ -60,18 +60,18 @@ function makePexelsRequest (queryParamater, page){
 ```js
 //Replace this config object with your own Firebase configuration ↓↓↓
 var config = {
-    apiKey: "AIzaSyBtr7RXc1xMn2Dpaq4clWNqINsWAfBwag0",
-    authDomain: "wordcloud-cd654.firebaseapp.com",
-    databaseURL: "https://wordcloud-cd654.firebaseio.com",
-    projectId: "wordcloud-cd654",
-    storageBucket: "wordcloud-cd654.appspot.com",
-    messagingSenderId: "835307039957",
-    appId: "1:835307039957:web:3736745b8d1d54d986465c"
+    apiKey: "[YOUR API KEY]",
+    authDomain: "[YOUR AUTH DOMAIN]",
+    databaseURL: "[YOUR DATABASE URL]",
+    projectId: "[YOUR PROJECT ID]",
+    storageBucket: "[YOUR STORAGEBUCKET]",
+    messagingSenderId: "[YOUR MESSAGING SENDER ID]",
+    appId: "[YOUR APP ID]"
 };
 firebase.initializeApp(config);
 ```
 
-•If for some reason you would prefer to see anytonyms from the Thesaurus, you can change the code in **thesaurus.js** as follows:
+•If you would prefer to see anytonyms from the Thesaurus, you can change the code in **thesaurus.js** as follows:
 
 ```js
 var nounSyn = noun.syn; //Find this variable and change it as shown below--
