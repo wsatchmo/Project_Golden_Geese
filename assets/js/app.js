@@ -125,10 +125,11 @@ $(document).on("click", "#toggle-dark", function(event) {
     //If dark mode is off, change elems to turn it on
     if (dark === false) {
         $('#content-box').css({"background-color": "#dfdfdf"});
-        $('.bighuge-thesaurus').css({"background-color": "black"});
+        $('.key-point').css({"background-color": "black"});
         $('.bighuge-thesaurus').css({"color": "white"});
-        $('.ref-image').css({"border": "solid 2px #333333"});
-        $('#body-bg').css({"background": "url('./assets/images/connectwork.png')"});
+        $('.ref-image').css({"border": "2px solid #333333"});
+        $('#bg-effect').addClass("dark");
+        $('#bg-effect').removeClass("light");
         $('#thesaurus-input').css({"color": "white"});
         dark = true;
         return;
@@ -136,10 +137,11 @@ $(document).on("click", "#toggle-dark", function(event) {
     //If dark mode is on, change elems to turn it off
     if (dark === true){
         $('#content-box').css({"background-color": "white"});
-        $('.bighuge-thesaurus').css({"background-color": "transparent"});
+        $('.key-point').css({"background-color": "#777474"});
         $('.bighuge-thesaurus').css({"color": "black"});
-        $('.ref-image').css({"border": "none"});
-        $('#body-bg').css({"background": "url('./assets/images/topography.png')"});
+        $('.ref-image').css({"border": "2px solid black;"});
+        $('#bg-effect').addClass("light");
+        $('#bg-effect').removeClass("dark");
         $('#thesaurus-input').css({"color": "#495057"});
         dark = false;
         return;
