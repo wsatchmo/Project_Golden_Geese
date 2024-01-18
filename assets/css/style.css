@@ -20,10 +20,38 @@
 |_|\_\__,_|\_/   |_|  |_\___|_||_\_,_|
                                       
 */
+html, body{
+  height: 100%;
+}
 
-body{
-  background-image: url("../images/topography.png");
+#body-bg{
+  background-image: url(../images/topography.png);
   background-repeat: repeat;
+  height: 100vh;
+}
+
+#bg-effect{
+  position: fixed;
+  z-index: 1;
+  height: 100vh;
+  width: 100vw;
+}
+
+.dark{
+  background-color: #303134;
+  mix-blend-mode: hard-light;
+    -webkit-transition: all 0.6s ease;
+    -moz-transition: all 0.6s ease;       
+      -o-transition: all 0.6s ease;
+        transition: all 0.6s ease;
+}
+.light{
+  mix-blend-mode: unset;
+  background-color: transparent;
+    -webkit-transition: all 0.6s ease;
+    -moz-transition: all 0.6s ease;       
+      -o-transition: all 0.6s ease;
+        transition: all 0.6s ease;
 }
 
 header {
@@ -141,7 +169,6 @@ header {
 /* main page layout */
 .container {
   display: grid;
-
   grid-template-areas:
     "header header header"
     "content1 content side"
@@ -155,6 +182,10 @@ header {
 
 #document-main{
   width: 100%;
+  position: absolute;
+  z-index: 2;
+  left: 0px;
+  right: 0px;
 }
 
 /* ======= WRITING SECTION ======= */
@@ -172,6 +203,10 @@ header {
   background-color: white;
   background-repeat: repeat-y;
   z-index: 0;
+    -webkit-transition: all 0.6s ease;
+    -moz-transition: all 0.6s ease;       
+      -o-transition: all 0.6s ease;
+        transition: all 0.6s ease;
 }
 #content-box::selection{
   color: rgb(0, 175, 175);;
@@ -210,6 +245,10 @@ header {
   font-family: "Comfortaa";
   font-size: 30px;
   height: 40px;
+    -webkit-transition: all 0.6s ease;
+    -moz-transition: all 0.6s ease;       
+      -o-transition: all 0.6s ease;
+        transition: all 0.6s ease;
 }
 
 /* ======= TOPICS ======= */
@@ -267,6 +306,10 @@ header {
   background-color: #777474;
   min-height: 300px;
   overflow:scroll;
+    -webkit-transition: all 0.6s ease;
+    -moz-transition: all 0.6s ease;       
+      -o-transition: all 0.6s ease;
+        transition: all 0.6s ease;
 }
 
 .highlight { 
@@ -301,6 +344,10 @@ header {
   flex-wrap: wrap;
   flex-direction: row;
   border: 2px solid black;
+    -webkit-transition: all 0.6s ease;
+    -moz-transition: all 0.6s ease;       
+      -o-transition: all 0.6s ease;
+        transition: all 0.6s ease;
 }
 
 /* ======= THESAURUS ======= */
@@ -311,6 +358,10 @@ header {
   max-height: 400px;
   overflow:scroll;
   border: solid 2px #333333;
+    -webkit-transition: all 0.6s ease;
+    -moz-transition: all 0.6s ease;       
+      -o-transition: all 0.6s ease;
+        transition: all 0.6s ease;
 }
 
 .thesaurus-search{
